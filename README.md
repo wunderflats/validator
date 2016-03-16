@@ -1,5 +1,7 @@
 # @wunderflats/validator
 
+[![Travis Build](http://img.shields.io/travis/wunderflats/validator.svg?style=flat)](https://travis-ci.org/wunderflats/validator)
+
 A highly-flexible validator for (nested) objects of user input.
 
 ## Features
