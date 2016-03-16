@@ -31,11 +31,10 @@
     "standard": "6.0.4"
   },
   "dependencies": {
-    "array-uniq": "^1.0.2",
     "async-q": "^0.3.1",
     "flat": "^2.0.0",
-    "flatten": "^1.0.2",
     "is-promise": "^2.1.0",
+    "toposort-class": "^1.0.1",
     "validator": "^5.1.0"
   }
 }
