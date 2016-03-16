@@ -24,7 +24,7 @@ npm i @wunderflats/validator
 
 ### Example: validate creation of a user
 
-```
+```javascript
 const validator = require('@wunderflats/validator')
 const defined = require('@wunderflats/validator/lib/validators/defined')
 const str = require('@wunderflats/validator/lib/validators/string')
@@ -158,7 +158,7 @@ is internally converted to:
 
 This way you could easily write the following validator:
 
-```
+```javascript
 const validateDuration = validator({
   duration: {
     start: [defined(), date(), beforeDate('duration.end')], // mustBeDefined && mustBeDate
