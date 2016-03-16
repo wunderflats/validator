@@ -161,8 +161,8 @@ This way you could easily write the following validator:
 ```javascript
 const validateDuration = validator({
   duration: {
-    start: [defined(), date(), beforeDate('duration.end')], // mustBeDefined && mustBeDate
-    end: [defined(), date()] // mustBeDefined && mustBeDate && mustBeBeforeDate:duration.end
+    start: [defined(), date(), beforeDate('duration.end')], // mustBeDefined && mustBeDate && mustBeBeforeDate:duration.end
+    end: [defined(), date()] // mustBeDefined && mustBeDate
   }
 })
 ```
