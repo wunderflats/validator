@@ -14,6 +14,32 @@ A highly-flexible validator for (nested) objects of user input.
 * If the first validator for a property fails, the remaining will be ignored
 * Support for asynchronous validators
 
+## Built-in validators
+
+### containing(seed)
+
+Checks if a string or array contains the specified seed.
+
+### equalTo(value)
+
+Checks if field is exactly (`===`) equal to a value.
+
+### beforeDate(date)
+
+Checks if date or valid date string is before a date.
+
+### date()
+
+Checks if field is a valid date string.
+
+### defined()
+
+Checks if a field is not `undefined`. Use this for required fields.
+
+### email()
+
+Checks if string is a valid email.
+
 ## Installation
 
 ```
