@@ -18,15 +18,15 @@ A highly-flexible validator for (nested) objects of user input.
 
 ### containing(seed)
 
-Checks if a string or array contains the specified seed.
+Checks if a string or array contains specified seed.
 
 ### equalTo(value)
 
 Checks if field is exactly (`===`) equal to a value.
 
-### beforeDate(date)
+### beforeDate(field)
 
-Checks if date or valid date string is before a date.
+Checks if date or valid date string is before a date in specified field.
 
 ### date()
 
