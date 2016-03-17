@@ -46,13 +46,11 @@ Checks if string is a valid email.
 npm i @wunderflats/validator
 ```
 
-## Usage
+## API
 
-### API
+### validator(rules[, opts]) -> function validate
 
-#### validator(rules[, opts]) -> function validate
-
-##### rules
+#### rules
 
 A hash of field names mapped to one or more validators that are executed sequentially.
 
@@ -73,9 +71,11 @@ const rules = {
 }
 ```
 
-##### opts
+#### opts
 
 * `opts.async = false` - let the validator run asynchronously. Must be set if any validator returns a promise, otherwise throws an error during validation.
+
+## Usage
 
 ### Example: validate creation of a user
 
