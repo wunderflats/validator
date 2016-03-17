@@ -26,7 +26,11 @@ Checks if field is exactly (`===`) equal to a value.
 
 ### beforeDate(field)
 
-Checks if date or valid date string is before a date in specified field.
+Checks if date or valid date string is before date in specified field.
+
+### afterDate(field)
+
+Checks if date or valid date string is after date in specified field.
 
 ### date()
 
