@@ -32,11 +32,12 @@ const email = require('@wunderflats/validator/lib/validators/email')
 const equalTo = require('@wunderflats/validator/lib/validators/equal-to')
 
 const validate = validator({
-  firstName: [defined(), str()], // mustBeDefined && mustBeString
-  lastName: [defined(), str()], // mustBeDefined && mustBeString
-  email: [defined(), str(), email()], // ... && mustBeEmail
-  password: [defined(), str(), minLength(8)], // ... && mustBeMinLength:8
-  passwordConfirmation: [defined(), equalTo('password')] // ... && mustBeEqualTo:password
+  firstName: [defined, str], // mustBeDefined && mustBeString
+  lastName: [defined, str], // mustBeDefined && mustBeString
+  email: [defined, str, email], // ... && mustBeEmail
+  password: [defined, str, minLength(8)], // ... && mustBeMinLength:8
+  passwordConfirmation: [defined, equalTo('password')] // ... && mustBeEqualTo:password,
+  newsletter: defined
 })
 
 const errors = validate({
@@ -51,7 +52,8 @@ console.log(errors)
 //   firstName: 'mustBeDefined',
 //   lastName: 'mustBeDefined',
 //   email: 'mustBeEmail',
-//   password: 'mustBeMinLength:8'
+//   password: 'mustBeMinLength:8'm
+//   newsletter: 'mustBeDefined'
 // }
 
 const errors = validate({
@@ -59,7 +61,8 @@ const errors = validate({
   lastName: 'Schmitt',
   email: 'wundermax@wunderflats.com',
   password: '12345678',
-  passwordConfirmation: '123456'
+  passwordConfirmation: '123456',
+  newsletter: 'whatever'
 })
 
 console.log(errors)
