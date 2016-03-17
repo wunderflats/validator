@@ -9,7 +9,7 @@ A highly-flexible validator for (nested) objects of user input.
 * Error messages are generated according to a schema and can be easily customized and translated
 * Validation rules are composed from functions, so unused validators will not bloat your code
 * Validators are simple functions so they can be easily added, customized and composed
-* Supports dependencies on other fields, e.g. `passwordConfirmation: equalTo('user.password')`
+* Supports dependencies on other fields, e.g. `passwordConfirmation: equalToField('user.password')`
 * Built to run in browsers and node.js, so you can share your validation code
 * If the first validator for a property fails, the remaining will be ignored
 * Support for asynchronous validators
@@ -24,19 +24,15 @@ Checks if `typeof value === type`.
 
 Checks if a string or array contains specified seed.
 
-### equalTo(field)
+### equalTo(seed)
 
-Checks if field is exactly (`===`) equal to value in specified field.
+Checks if field is exactly (`===`) equal specified seed.
 
-### value(seed)
-
-Checks if field is exactly (`===`) equal to specified seed.
-
-### beforeDate(field)
+### beforeDate(seed)
 
 Checks if date or valid date string is before date in specified field.
 
-### afterDate(field)
+### afterDate(seed)
 
 Checks if date or valid date string is after date in specified field.
 
@@ -51,6 +47,19 @@ Checks if a field is not `undefined`. Use this for required fields.
 ### email()
 
 Checks if string is a valid email.
+
+### fromField(field, validator)
+
+Constructs a validator that receives value of `field` as its first argument.
+
+This allows you to compare fields from the same input object, e.g.:
+
+```javascript
+const rules = {
+  password: [defined, minLength(8)],
+  passwordConfirmation: [defined, fromField('password', equalTo)]
+}
+```
 
 ## API
 
@@ -103,7 +112,7 @@ const validate = validator({
   lastName: [defined, str], // mustBeDefined && mustBeString
   email: [defined, str, email], // ... && mustBeEmail
   password: [defined, str, minLength(8)], // ... && mustBeMinLength:8
-  passwordConfirmation: [defined, equalTo('password')] // ... && mustBeEqualTo:password,
+  passwordConfirmation: [defined, fromField('password', equalTo)] // ... && mustBeEqualTo:password,
   newsletter: defined
 })
 
@@ -135,7 +144,7 @@ const errors = validate({
 console.log(errors)
 
 // {
-//   passwordConfirmation: 'mustBeEqualTo:password'
+//   passwordConfirmation: 'mustBeEqualTo:12345678$fromField:password'
 // }
 ```
 
@@ -171,13 +180,14 @@ If all validation passes, `errors` will be `null`.
 
 ```javascript
 module.exports = () => {
-  return {
-    name: 'string',
-    validate
-  }
+  return { validate }
 
   function validate (value) {
-    return typeof value === 'string'
+    const success = typeof value === 'string'
+    return {
+      success,
+      error : success ? false : 'string'
+    }
   }
 }
 ```
@@ -186,7 +196,7 @@ module.exports = () => {
 
 #### Validator object
 
-Each validator must expose a function that can optionally take parameters for configuration. It must return an object that implements `{ name: (String), validation: (Function) }`. You may optionally declare a dependency on another field in your input by setting `{ dependsOn: (String) fieldName }`. If the validator regards `undefined` as potentially valid input, specify `{ acceptsUndefined: true }`. You most-likely will not need this.
+Each validator must expose a function that can optionally take parameters for configuration. It must return an object that implements `{ validate: (Function) }`. You may optionally declare a dependency on another field in your input by setting `{ dependsOn: (String) fieldName }`. If the validator regards `undefined` as potentially valid input, specify `{ acceptsUndefined: true }`. You most-likely will not need this.
 
 #### Naming
 
@@ -197,7 +207,7 @@ Names of validators should be camel-cased and resolve to a readable error messag
 Examples:
 
 * `string`: `mustBeString` (good)
-* `equalTo:[fieldName]`: `mustBeEqualTo:password` (good)
+* `equalToField:[fieldName]`: `mustBeEqualToField:password` (good)
 * `minLength:[length]`: `mustBeMinLength:6` (acceptable)
 * `required`: `mustBeRequired` (bad)
 * `must be a valid email`: `mustBeMust be a valid email` (very bad)
@@ -205,6 +215,15 @@ Examples:
 #### validate function
 
 The `validate` function of your validator is called with two parameters `value` and `input`. `value` is the value of the field it should be run against and `input` is the complete input object.
+
+Your validate function must return a validation object with the following interface:
+
+```javascript
+{
+  success: (bool)
+  error: false | (string)
+}
+```
 
 For convenience, `input` is flattened so that you could easily declare a dependency on another nested field. E.g.:
 
@@ -231,7 +250,7 @@ This way you could easily write the following validator:
 ```javascript
 const validateDuration = validator({
   duration: {
-    start: [defined(), date(), beforeDate('duration.end')], // mustBeDefined && mustBeDate && mustBeBeforeDate:duration.end
+    start: [defined(), date(), fromField('duration.end', beforeDate)], // mustBeDefined && mustBeDate && mustBeBeforeDate:%value%$fromField:duration.end
     end: [defined(), date()] // mustBeDefined && mustBeDate
   }
 })
