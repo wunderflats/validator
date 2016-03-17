@@ -200,7 +200,7 @@ Each validator must expose a function that can optionally take parameters for co
 
 #### Naming
 
-To enforce non-verbose and consistent error messages, the error message is composed from the validator's `name` by prepending `mustBe`. So for the `string` validator above, the resulting error message would be `mustBeString` if validation fails.
+To enforce non-verbose and consistent error messages, the error message is composed from the validator's `return.error` by prepending `mustBe`. So for the `string` validator above, the resulting error message would be `mustBeString` if validation fails.
 
 Names of validators should be camel-cased and resolve to a readable error message given a prepended `mustBe`.
 
