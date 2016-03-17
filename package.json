@@ -36,5 +36,10 @@
     "is-promise": "^2.1.0",
     "toposort-class": "^1.0.1",
     "validator": "^5.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   }
 }
