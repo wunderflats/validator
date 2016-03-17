@@ -24,9 +24,13 @@ Checks if `typeof value === type`.
 
 Checks if a string or array contains specified seed.
 
-### equalTo(value)
+### equalTo(field)
 
-Checks if field is exactly (`===`) equal to a value.
+Checks if field is exactly (`===`) equal to value in specified field.
+
+### value(seed)
+
+Checks if field is exactly (`===`) equal to specified seed.
 
 ### beforeDate(field)
 
