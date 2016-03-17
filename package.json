@@ -17,6 +17,7 @@
     "url": "https://bitbucket.org/wunderflats/validator.git"
   },
   "devDependencies": {
+    "babelify": "^7.2.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
     "dependency-check": "2.5.1",
