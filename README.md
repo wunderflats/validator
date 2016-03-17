@@ -40,12 +40,6 @@ Checks if a field is not `undefined`. Use this for required fields.
 
 Checks if string is a valid email.
 
-## Installation
-
-```
-npm i @wunderflats/validator
-```
-
 ## API
 
 ### validator(rules[, opts]) -> function validate
@@ -76,6 +70,12 @@ const rules = {
 * `opts.async = false` - let the validator run asynchronously. Must be set if any validator returns a promise, otherwise throws an error during validation.
 
 ## Usage
+
+### Installation
+
+```
+npm i @wunderflats/validator
+```
 
 ### Example: validate creation of a user
 
