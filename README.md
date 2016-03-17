@@ -16,6 +16,10 @@ A highly-flexible validator for (nested) objects of user input.
 
 ## Built-in validators
 
+### typeOf(type)
+
+Checks if `typeof value === type`.
+
 ### containing(seed)
 
 Checks if a string or array contains specified seed.
