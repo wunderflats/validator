@@ -48,6 +48,35 @@ npm i @wunderflats/validator
 
 ## Usage
 
+### API
+
+#### validator(rules[, opts]) -> function validate
+
+##### rules
+
+A hash of field names mapped to one or more validators that are executed sequentially.
+
+Validators are functions but `validator` can call them under the hood for you:
+
+```javascript
+const rules = {
+  firstName: defined() // this is the 'correct' way
+  lastName: defined, // but this also works and is prettier <3
+}
+```
+
+Pass an array of validators to have them execute sequentially. After the first fail, the remaining will be ignored:
+
+```javascript
+const rules = {
+  email: [defined, email]
+}
+```
+
+##### opts
+
+* `opts.async = false` - let the validator run asynchronously. Must be set if any validator returns a promise, otherwise throws an error during validation.
+
 ### Example: validate creation of a user
 
 ```javascript
