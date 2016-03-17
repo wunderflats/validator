@@ -8,7 +8,8 @@ describe('validators/{{camelCase name}}', function () {
   const validator = {{camelCase name}}()
 
   it('fails', function () {
-    expect(validator.validate())
-      .to.equal(false)
+    const res = validator.validate()
+    expect(res).to.have.property('success', false)
+    expect(res).to.have.property('error', '{{camelCase name}}')
   })
 })

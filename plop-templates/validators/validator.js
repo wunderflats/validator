@@ -1,9 +1,11 @@
 'use strict'
 
+const validation = require('../validation')
+
 module.exports = () => {
-  return { name: '{{camelCase name}}', validate }
+  return { validate }
 
   function validate (value) {
-    return false
+    return validation(false, '{{camelCase name}}')
   }
 }
