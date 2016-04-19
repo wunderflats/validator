@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "async-q": "^0.3.1",
-    "flat": "^2.0.0",
+    "flat": "git+https://github.com/wunderflats/flat.git",
     "is-promise": "^2.1.0",
     "toposort-class": "^1.0.1",
     "validator": "^5.1.0"
