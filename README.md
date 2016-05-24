@@ -89,6 +89,7 @@ const rules = {
 #### opts
 
 * `opts.async = false` - let the validator run asynchronously. Must be set if any validator returns a promise, otherwise throws an error during validation.
+* `opts.throwing = (Custom)Error` - will let the validator throw / reject with an instance of provided error constructor if there are errors (passing them as a parameter to the constructor). Otherwise, resolve with / return input.
 
 ## Usage
 
