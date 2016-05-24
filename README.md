@@ -56,6 +56,10 @@ Checks if string is a valid month string ('01' - '12'). If `padded` is set to fa
 
 Checks if string is a valid year string ('YYYY').
 
+### length(length)
+
+Checks if value (string, array, array-like) has specified length.
+
 ### fromField(field, validator)
 
 Constructs a validator that receives value of `field` as its first argument.
