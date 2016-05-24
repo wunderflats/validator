@@ -48,6 +48,14 @@ Checks if a field is not `undefined`. Use this for required fields.
 
 Checks if string is a valid email.
 
+### monthString(padded = true)
+
+Checks if string is a valid month string ('01' - '12'). If `padded` is set to false, it will not expect single-digit months to be 0-padded.
+
+### yearString()
+
+Checks if string is a valid year string ('YYYY').
+
 ### fromField(field, validator)
 
 Constructs a validator that receives value of `field` as its first argument.
