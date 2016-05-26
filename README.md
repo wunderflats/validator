@@ -20,6 +20,10 @@ A highly-flexible validator for (nested) objects of user input.
 
 Checks if `typeof value === type`.
 
+### instanceOf(constructor)
+
+Checks if ` value instanceof constructor`.
+
 ### containing(seed)
 
 Checks if a string or array contains specified seed.
