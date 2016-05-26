@@ -60,6 +60,10 @@ Checks if string is a valid year string ('YYYY').
 
 Checks if value (string, array, array-like) has specified length.
 
+### countryCode
+
+Checks if value is an [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
+
 ### fromField(field, validator)
 
 Constructs a validator that receives value of `field` as its first argument.
