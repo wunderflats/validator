@@ -44,6 +44,10 @@ Checks if date or valid date string is after date in specified field.
 
 Checks if field is a valid date string.
 
+### array()
+
+Checks if field is an array.
+
 ### defined()
 
 Checks if a field is not `undefined`. Use this for required fields.
