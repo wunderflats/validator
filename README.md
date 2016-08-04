@@ -16,6 +16,10 @@ A highly-flexible validator for (nested) objects of user input.
 
 ## Built-in validators
 
+### emptyStringOr(validator)
+
+Passes if value is an empty string, `null`,`undefined` or passes `validator`'s' validation.
+
 ### objectId(value)
 
 Checks if `value` is a valid [ObejctId](https://docs.mongodb.com/manual/reference/method/ObjectId/).
