@@ -16,6 +16,10 @@ A highly-flexible validator for (nested) objects of user input.
 
 ## Built-in validators
 
+### objectId(value)
+
+Checks if `value` is a valid [ObejctId](https://docs.mongodb.com/manual/reference/method/ObjectId/).
+
 ### typeOf(type)
 
 Checks if `typeof value === type`.

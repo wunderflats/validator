@@ -39,6 +39,7 @@
     "country-data": "0.0.24",
     "flat": "git+https://github.com/wunderflats/flat.git",
     "is-promise": "^2.1.0",
+    "objectid": "^3.2.1",
     "toposort-class": "^1.0.1",
     "validator": "^5.1.0"
   },
