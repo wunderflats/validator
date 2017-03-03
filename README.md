@@ -40,13 +40,19 @@ Checks if a string or array contains specified seed.
 
 Checks if field is exactly (`===`) equal specified seed.
 
-### beforeDate(seed)
+### beforeDate(seed[, opts])
 
 Checks if date or valid date string is before date in specified field.
 
-### afterDate(seed)
+Optionally supply `opts.orEqual = true` (defaults to `false`) to let validation
+pass if date is before or equal to date.
+
+### afterDate(seed[, opts])
 
 Checks if date or valid date string is after date in specified field.
+
+Optionally supply `opts.orEqual = true` (defaults to `false`) to let validation
+pass if date is after or equal to date.
 
 ### date()
 
