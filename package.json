@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "async-q": "^0.3.1",
-    "camelcase": "^4.0.0",
+    "camelcase": "^5.3.1",
     "country-data": "^0.0.31",
     "flat": "git+https://github.com/wunderflats/flat.git",
     "is-promise": "^2.1.0",
