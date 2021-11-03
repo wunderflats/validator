@@ -41,7 +41,7 @@
     "flat": "git+https://github.com/wunderflats/flat.git",
     "is-promise": "^2.1.0",
     "toposort-class": "^1.0.1",
-    "validator": "^7.0.0"
+    "validator": "^13.7.0"
   },
   "browserify": {
     "transform": [
